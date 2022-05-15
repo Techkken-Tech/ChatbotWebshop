@@ -13,29 +13,7 @@
 $location = str_replace('\\', '/', getcwd());
 $currentLocation = explode("/", $location);
 $desiredLocation = implode("/", $currentLocation);
-$installFile = $desiredLocation . '/installer' . '/install.php';
 
-if (file_exists($installFile)) {
-    $install = require __DIR__.'/installer/install.php';
-} else {
-    $install = null;
-}
-
-if (! is_null($install)) {
-
-    /*
-    |--------------------------------------------------------------------------
-    | Redirect To Installer Page
-    |--------------------------------------------------------------------------
-    |
-    | If somehow anything went wrong then this will redirect to the installer
-    | page.
-    |
-    */
-
-    header("Location: $install");
-
-} else {
 
     /*
     |--------------------------------------------------------------------------
@@ -49,7 +27,7 @@ if (! is_null($install)) {
     */
 
     require __DIR__.'/../vendor/autoload.php';
-}
+
 
 define('LARAVEL_START', microtime(true));
 
